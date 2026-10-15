@@ -535,7 +535,6 @@
     }
   }
 
-}
 
   // Global ambient continuity: a shared, intentionally slow light response across
   // chapters. The CSS carries the image and palette; this only adjusts its focal
