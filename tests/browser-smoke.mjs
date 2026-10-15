@@ -31,7 +31,18 @@ async function visit(name,viewport,url,shot,assertions){
 await visit('Desktop home', {width:1440,height:900},'/', 'home-desktop.png', async page=>{
   check((await page.title()).includes('Dulten Richard Fromentin'),'site identity title');
   check(await page.locator('.current-field').count()===1,'animated water hero missing');
-  check(await page.locator('.hero-discover').count()===1,'orbit discover interaction missing');
+  check(await page.locator('.hero-discover,.hero-compass').count()===0,'decorative circular discover/compass still present');
+  check(await page.locator('.portrait img').count()===1,'full-colour source portrait missing');
+  const portrait = await page.locator('.portrait img').evaluate(img=>{
+    const st=getComputedStyle(img),r=img.getBoundingClientRect();
+    return {loaded:img.complete&&img.naturalWidth>0,filter:st.filter,fit:st.objectFit,
+      proportion:Math.abs(r.width/r.height-img.naturalWidth/img.naturalHeight)};
+  });
+  check(portrait.loaded,'portrait did not load');
+  check(portrait.filter==='none','portrait is being converted to black and white or filtered');
+  check(portrait.fit==='contain','portrait uses cropping instead of contain');
+  check(portrait.proportion<.035,'portrait shape/aspect ratio is distorted');
+  check(await page.locator('.about-section').evaluate(el=>getComputedStyle(el).color)==='rgb(243, 241, 233)','about scene is disconnected from atmospheric colour system');
   check(await page.locator('.waypoint-nav a').count()===4,'4 waypoints expected');
   check(await page.locator('.spotlight-stage').count()===1,'interactive stage absent');
   check(await page.locator('.spotlight-select').count()===3,'3 highlight selectors expected');
@@ -53,6 +64,8 @@ await visit('Desktop home', {width:1440,height:900},'/', 'home-desktop.png', asy
 });
 await visit('Mobile home',{width:390,height:844},'/','home-mobile.png',async page=>{
   check(await page.locator('.hero h1').isVisible(),'name missing');
+  check(await page.locator('.hero-discover').count()===0,'circular discovery still visible on mobile');
+  check(await page.locator('.portrait img').evaluate(img=>getComputedStyle(img).filter)==='none','mobile portrait lost full colour');
   check(await page.locator('.spotlight-select').count()===3,'mobile chapter controls absent');
   check(await page.locator('.spotlight-panel:not([hidden])').count()===1,'multiple chapters stacked on mobile');
   check(await page.locator('.closing-links a[href*="linkedin.com"]').count()===1,'LinkedIn CTA missing');
