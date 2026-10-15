@@ -1166,3 +1166,6 @@ body:not(.home) .page-crosslink a{color:var(--sea-gold)}
   .home .spotlight-panel h3,.home .about-copy h2,.home .closing-chapter blockquote p{color:black!important}
   .home .spotlight-controls,.home .current-field{display:none!important}
 }
+
+/* Non-negotiable photo fidelity: no crop, no desaturation, no shape change. */
+body.home .about-section figure.portrait img{filter:none!important;object-fit:contain!important;aspect-ratio:auto!important;object-position:center!important;height:auto!important;width:100%!important;max-height:none!important;clip-path:none!important;transform:none!important}
