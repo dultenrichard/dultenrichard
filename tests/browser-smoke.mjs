@@ -47,7 +47,13 @@ await checkScene('Mobile',{width:390,height:844},'home-mobile.png',async p=>{
   const menu=p.locator('.menu-toggle');
   await menu.click();
   expect(await menu.getAttribute('aria-expanded')==='true','menu did not open');
-  expect(await p.locator('.mobile-nav').isVisible(),'mobile navigation unavailable');
+  await p.locator('.mobile-nav').waitFor({state:'visible',timeout:1600}).catch(()=>{});
+  const menuDetails=await p.locator('.mobile-nav').evaluate(el=>({
+    class:el.className,inert:el.inert,visibility:getComputedStyle(el).visibility,
+    display:getComputedStyle(el).display,opacity:getComputedStyle(el).opacity,
+    bounds:el.getBoundingClientRect().toJSON()
+  }));
+  expect(await p.locator('.mobile-nav').isVisible(),'mobile navigation unavailable: '+JSON.stringify(menuDetails));
   await p.keyboard.press('Escape');
   expect(await menu.getAttribute('aria-expanded')==='false','Escape did not dismiss');
   expect(await p.locator('.portrait img').evaluate(img=>getComputedStyle(img).objectFit)==='contain','mobile portrait cropped');
