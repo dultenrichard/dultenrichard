@@ -271,3 +271,7 @@ a{color:inherit}button{font:inherit}img{max-width:100%;display:block}
   .footer-name,.footer-base a{color:black}
   .reveal{opacity:1!important;transform:none!important}
 }
+
+/* Art-direction adjustment after the first full-page capture: align the portrait
+   with the narrative grid, rather than isolating it at the far right edge. */
+@media(min-width:901px){.presence-grid .portrait{margin-left:0;margin-right:auto}}
