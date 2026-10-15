@@ -281,15 +281,9 @@
     scenic.setAttribute('aria-hidden', 'true');
     currentHero.insertBefore(scenic, $('.hero-shade'));
 
-    const ornament = document.createElement('div');
-    ornament.className = 'hero-compass';
-    ornament.setAttribute('aria-hidden','true');
-    ornament.innerHTML = '<span class="compass-ring"><i></i><i></i><i></i><i></i></span><span class="compass-label">DR / 2026</span>';
-    currentHero.append(ornament);
-
     const notation = document.createElement('div');
     notation.className = 'hero-notation shell';
-    notation.innerHTML = '<span>01 / Personal record</span><span>Scroll to navigate the current <b aria-hidden="true">↓</b></span>';
+    notation.innerHTML = '<span>01 / Personal record</span><span>One continuous story <b aria-hidden="true">↓</b></span>';
     currentHero.append(notation);
 
     const waypoint = document.createElement('nav');
@@ -539,6 +533,37 @@
       triggers.forEach(btn=>btn.addEventListener('click',()=>draw(phase)));
       fit();resume();
     }
+  }
+
+}
+
+  // Global ambient continuity: a shared, intentionally slow light response across
+  // chapters. The CSS carries the image and palette; this only adjusts its focal
+  // position without changing layout or interfering with normal scrolling.
+  if(document.body.classList.contains('home')){
+    const root=document.documentElement;
+    const stages=[$('.hero'),$('#about'),$('#experience'),$('#connect')].filter(Boolean);
+    let pFrame=0;
+    const illuminate=()=>{
+      pFrame=0;
+      const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+      const fraction=Math.min(1,Math.max(0,scrollY/max));
+      root.style.setProperty('--journey-progress',fraction.toFixed(4));
+      const x=(74-fraction*22).toFixed(1);
+      const y=(22+fraction*50).toFixed(1);
+      root.style.setProperty('--atmosphere-x',x+'%');
+      root.style.setProperty('--atmosphere-y',y+'%');
+      stages.forEach((section,index)=>{
+        const box=section.getBoundingClientRect();
+        const isNow=box.top<=innerHeight*.55&&box.bottom>innerHeight*.25;
+        section.classList.toggle('is-journey-current',isNow);
+      });
+    };
+    addEventListener('scroll',()=>{
+      if(!pFrame)pFrame=requestAnimationFrame(illuminate);
+    },{passive:true});
+    addEventListener('resize',illuminate,{passive:true});
+    illuminate();
   }
 
 })();
