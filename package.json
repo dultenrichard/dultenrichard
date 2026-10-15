@@ -1,0 +1,6 @@
+{
+  "name":"dulten-richard-in-good-company",
+  "private":true,
+  "type":"module",
+  "scripts":{"dev":"node scripts/server.mjs","test:browser":"node tests/browser-smoke.mjs"}
+}
