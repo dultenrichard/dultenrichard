@@ -9,7 +9,7 @@
 <meta property="og:title" content="Dulten Richard Fromentin — The Living Archive">
 <meta property="og:description" content="A record in progress. Research, service, projects, and the experiences that connect them.">
 <meta name="robots" content="noindex,nofollow">
-<title>The Living Archive — Dulten Richard Fromentin | Design Study 06</title>
+<title>The Living Archive — Dulten Richard Fromentin | Design Study 07</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -61,6 +61,49 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}a{color:i
 @media(min-width:751px) and (max-height:700px){.hero{min-height:750px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;filter:none!important}.js-motion .reveal,.js-motion .hero h1 .line,.js-motion .hero-kicker,.js-motion .hero-intro,.js-motion .hero-actions,.js-motion .hero-leaf,.js-motion .branch-link,.js-motion .mini-leaf{opacity:1!important;transform:none!important;filter:none!important}}
 @media(hover:none){.hero-graphic{will-change:auto}}
+
+/* DESIGN 07 — ONE UNBROKEN TREE; no image assets, canvases, or isolated diagram components. */
+.tree-world{position:relative;isolation:isolate;overflow:clip}
+.tree-world > section,.tree-world > .growth-story{position:relative;z-index:2}
+.continuous-tree{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible;pointer-events:none;user-select:none}
+.continuous-tree .tree-skeleton{fill:none;stroke:url(#trunk-ink);stroke-linecap:round;stroke-linejoin:round}
+.continuous-tree .tree-wash{fill:none;stroke:#e6eee4;stroke-linecap:round;opacity:.75}
+.continuous-tree .tree-grain{fill:none;stroke:#a6b69d;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
+.continuous-tree .tree-twig{fill:none;stroke:#66876d;stroke-width:1.65;stroke-linecap:round}
+.continuous-tree .tree-leaf{fill:url(#leaf-ink);stroke:#658069;stroke-width:1.05;transform-box:fill-box;transform-origin:center;opacity:.94}
+.continuous-tree .tree-leaf-vein{stroke:#7a9978;stroke-width:.65;stroke-linecap:round;fill:none}
+.continuous-tree .tree-node{fill:white;stroke:#708c6e;stroke-width:1.2}
+.continuous-tree .tree-knot{fill:none;stroke:#b38c64;stroke-width:1.2;opacity:.8}
+.continuous-tree .tree-ring{fill:none;stroke:#c4cfbe;stroke-width:1;opacity:.44}
+.continuous-tree .tree-gold{fill:#b98c58;opacity:.55}
+.continuous-tree .tree-leaf.breathed{animation:tree-breath 9s ease-in-out infinite alternate}
+@keyframes tree-breath{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2.5deg)}}
+.growth-story::before,.trunk::before{display:none!important}
+.canopy{overflow:visible}
+.hero{overflow:visible}
+.hero-graphic{pointer-events:none}
+.hero-stamp{background:#ffffffdb;padding:9px 0 0 12px;bottom:3%}
+.branch-section .section-figure{pointer-events:none}
+.branch-section .section-figure::after{content:'';position:absolute;right:12%;bottom:14%;width:68px;height:1px;background:#aebdae;opacity:.8}
+.branch-section:nth-child(even) .section-figure::after{left:15%;right:auto}
+.canopy-center{border:1px solid #d9e5d7;border-radius:50%;padding:13px 23px;color:#405c44;box-shadow:0 0 0 10px #ffffffc7}
+.section-copy,.section-intro,.trunk-copy,.roots-inner{position:relative;z-index:2}
+/* On small screens the same trunk runs down the left margin beside the text. */
+@media(max-width:750px){
+  .tree-world{overflow:clip}
+  .hero{overflow:visible}
+  .hero-graphic{pointer-events:none}
+  .branch-section .section-figure{height:100px;margin-bottom:6px}
+  .branch-section{padding-top:80px}
+  .canopy-center{padding:7px 11px;font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){.continuous-tree .tree-leaf{animation:none!important}}
+
+/* Editorial clarity: the one-line timeline remains visible behind text without crossing it. */
+.roots-inner > div{position:relative;z-index:3;background:linear-gradient(90deg,rgba(255,255,255,.99) 76%,rgba(255,255,255,.92) 96%,transparent)}
+.roots-inner > div:last-child{background:#fffffff2}
+.continuous-tree .tree-root{fill:none;stroke:#8b9074;stroke-linecap:round;stroke-width:1.8;opacity:.48}
+@media(max-width:750px){.roots-inner > div{background:rgba(255,255,255,.97)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","name":"The Living Archive — Design Study","about":{"@type":"Person","name":"Dulten Richard Fromentin"},"description":"A prototype of a living personal archive, not a completed or published biography."}</script>
 </head>
@@ -83,34 +126,28 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}a{color:i
 <a href="#contact"><span>Get in touch</span><i aria-hidden="true"></i></a>
 </nav>
 <main id="main">
+<div class="tree-world" id="tree-world">
+  <!-- One actual SVG runs from the first shoot through every chapter to the roots. -->
+  <svg class="continuous-tree" id="continuous-tree" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="trunk-ink" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#476c4c"/><stop offset="40%" stop-color="#345a44"/>
+        <stop offset="73%" stop-color="#4b6046"/><stop offset="100%" stop-color="#826852"/>
+      </linearGradient>
+      <linearGradient id="leaf-ink" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ecf1df"/><stop offset="70%" stop-color="#b7cba9"/><stop offset="100%" stop-color="#8bab8c"/>
+      </linearGradient>
+    </defs>
+    <g id="tree-form"></g>
+  </svg>
   <section id="top" class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="hero-kicker">A life in progress · Founded in experience</p>
       <h1 id="hero-title"><span class="line">Still.</span><span class="line">In the</span><span class="line">making.</span></h1>
-      <p class="hero-intro">This is not a finished biography. It is a growing record of what I have learned, what I have done, and the questions connecting it all.</p>
+      <p class="hero-intro">One continuous tree; every branch a line of thought, every ring a chapter, every new leaf a record still being written.</p>
       <div class="hero-actions"><a href="#canopy" class="text-link">Explore the tree <span class="link-arrow" aria-hidden="true">↘</span></a><span class="hero-tiny">Research · Service · Practice · Life</span></div>
     </div>
     <div class="hero-graphic" aria-hidden="true">
-      <svg viewBox="0 0 540 650" role="presentation" aria-hidden="true">
-        <circle class="orbital" cx="283" cy="306" r="226"/>
-        <circle class="orbital" cx="283" cy="306" r="159"/>
-        <path class="hero-stem animated-svg" data-draw="hero" d="M279 633 C286 520 284 404 274 305 C271 214 297 165 312 93" />
-        <path class="hero-twig animated-svg" data-draw="hero" d="M280 498 C236 462 181 432 130 429"/>
-        <path class="hero-twig animated-svg" data-draw="hero" d="M275 398 C321 357 393 355 440 328"/>
-        <path class="hero-twig animated-svg" data-draw="hero" d="M276 301 C220 255 181 204 170 145"/>
-        <path class="hero-twig animated-svg" data-draw="hero" d="M284 212 C341 180 371 144 392 92"/>
-        <path class="hero-twig animated-svg" data-draw="hero" d="M283 240 C282 212 283 159 271 121"/>
-        <path class="hero-twig animated-svg" data-draw="hero" d="M192 212 C165 205 139 188 127 160"/>
-        <path class="hero-twig animated-svg" data-draw="hero" d="M382 146 C407 148 441 130 457 111"/>
-        <g transform="rotate(21 312 87)"><path class="hero-leaf" d="M312.0 120.0 C291.2 97.6 298.7 61.6 312.0 54.0 C329.1 63.2 326.6 96.9 312.0 120.0 Z"/></g>
-        <g transform="rotate(-24 172 143)"><path class="hero-leaf" d="M172.0 176.0 C151.2 153.6 158.7 117.6 172.0 110.0 C189.1 119.2 186.6 152.9 172.0 176.0 Z"/></g>
-        <g transform="rotate(24 394 89)"><path class="hero-leaf" d="M394.0 120.0 C371.9 98.9 379.9 65.1 394.0 58.0 C412.2 66.7 409.5 98.3 394.0 120.0 Z"/></g>
-        <g transform="rotate(-65 126 426)"><path class="hero-leaf" d="M126.0 452.0 C109.1 434.3 115.2 406.0 126.0 400.0 C139.9 407.3 137.8 433.8 126.0 452.0 Z"/></g>
-        <g transform="rotate(62 437 329)"><path class="hero-leaf" d="M437.0 354.0 C420.1 337.0 426.2 309.8 437.0 304.0 C450.9 311.0 448.8 336.5 437.0 354.0 Z"/></g>
-        <g transform="rotate(-15 270 116)"><path class="hero-leaf" d="M270.0 142.0 C253.1 124.3 259.2 96.0 270.0 90.0 C283.9 97.3 281.8 123.8 270.0 142.0 Z"/></g>
-        <g transform="rotate(-26 124 158)"><path class="hero-leaf" d="M124.0 178.0 C111.0 164.4 115.7 142.6 124.0 138.0 C134.7 143.6 133.1 164.0 124.0 178.0 Z"/></g>
-        <g transform="rotate(35 454 109)"><path class="hero-leaf" d="M454.0 134.0 C437.1 117.0 443.2 89.8 454.0 84.0 C467.9 91.0 465.8 116.5 454.0 134.0 Z"/></g>
-      </svg>
       <div class="hero-stamp">No. 001 — An unfinished record<br>Last revised · 2026</div>
     </div>
     <div class="hero-bottom"><span>© An ongoing life, not a final statement</span><span>Scroll to begin <span class="down">↓</span></span></div>
@@ -119,28 +156,11 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}a{color:i
     <div class="canopy-inner">
       <div class="section-intro reveal"><div class="section-marker"><span class="section-num">01</span> New growth / 2026</div><h2 class="display" id="canopy-title">Where things<br><em>stand now.</em></h2><p>Start with the present, then follow the branches backward. New work belongs at the top; earlier chapters remain part of the whole.</p></div>
       <nav class="canopy-map" aria-label="Explore the four principal branches of the archive">
-        <svg viewBox="0 0 1100 670" preserveAspectRatio="none" aria-hidden="true">
-          <path class="ink-limb animated-svg" data-draw="canopy" d="M552 668 C557 530 559 390 548 256 C535 171 512 119 478 81"/>
-          <path class="ink-limb animated-svg" data-draw="canopy" d="M555 505 C440 429 348 333 205 282"/>
-          <path class="ink-limb animated-svg" data-draw="canopy" d="M551 411 C673 340 777 219 905 138"/>
-          <path class="ink-limb animated-svg" data-draw="canopy" d="M555 560 C436 570 329 570 229 572"/>
-          <path class="ink-limb animated-svg" data-draw="canopy" d="M556 591 C691 586 762 590 891 563"/>
-          <path class="ink-limb fine animated-svg" data-draw="canopy" d="M400 363 C366 354 329 327 306 287"/>
-          <path class="ink-limb fine animated-svg" data-draw="canopy" d="M714 313 C764 299 789 273 812 241"/>
-          <path class="ink-limb fine animated-svg" data-draw="canopy" d="M414 571 C371 537 355 511 349 478"/>
-          <path class="ink-limb fine animated-svg" data-draw="canopy" d="M747 583 C795 551 816 527 817 497"/>
-          <circle class="branch-join" cx="552" cy="503" r="6"/><circle class="branch-join" cx="551" cy="411" r="6"/><circle class="branch-join" cx="555" cy="560" r="6"/>
-          <g transform="rotate(-37 307 282)"><path class="mini-leaf" d="M307.0 303.0 C294.0 288.7 298.7 265.8 307.0 261.0 C317.7 266.9 316.1 288.3 307.0 303.0 Z"/></g>
-          <g transform="rotate(34 813 240)"><path class="mini-leaf" d="M813.0 264.0 C797.4 247.7 803.0 221.5 813.0 216.0 C825.8 222.7 823.9 247.2 813.0 264.0 Z"/></g>
-          <g transform="rotate(-24 349 475)"><path class="mini-leaf" d="M349.0 493.0 C337.3 480.8 341.5 461.1 349.0 457.0 C358.6 462.0 357.2 480.4 349.0 493.0 Z"/></g>
-          <g transform="rotate(22 819 496)"><path class="mini-leaf" d="M819.0 514.0 C807.3 501.8 811.5 482.1 819.0 478.0 C828.6 483.0 827.2 501.4 819.0 514.0 Z"/></g>
-          <g transform="rotate(-37 478 81)"><path class="mini-leaf" d="M478.0 107.0 C461.1 89.3 467.2 61.0 478.0 55.0 C491.9 62.3 489.8 88.8 478.0 107.0 Z"/></g>
-        </svg>
         <a class="branch-link ideas" href="#inquiry"><span class="number">I. Field of inquiry</span><span class="name">Ideas &amp;<br>inquiry</span><span class="sub">Politics · Geography</span></a>
         <a class="branch-link service" href="#service"><span class="number">II. A practice</span><span class="name">Service &amp;<br>leadership</span><span class="sub">Instruction · Public life</span></a>
         <a class="branch-link practice" href="#practice"><span class="number">III. Making</span><span class="name">Projects &amp;<br>practice</span><span class="sub">Process · Craft</span></a>
         <a class="branch-link field" href="#field"><span class="number">IV. In the field</span><span class="name">Sport &amp;<br>team</span><span class="sub">Discipline · Teamwork</span></a>
-        <span class="canopy-center" aria-hidden="true">Follow a line of thought.</span>
+        <span class="canopy-center" aria-hidden="true">One life, many directions.</span>
       </nav>
       <div class="canopy-latest reveal"><div class="latest-note">Latest on the tree <span>These are sample entries in a design preview. Final titles, claims and dates will receive editorial review before publication.</span></div><div class="latest-list"><a class="latest-link" href="#entry-cities"><span class="date">2026</span><span class="title">Cities for People</span><span class="arrow">↗</span></a><a class="latest-link" href="#entry-atlas"><span class="date">2026</span><span class="title">Mapping global questions</span><span class="arrow">↗</span></a><a class="latest-link" href="#entry-trust"><span class="date">2026</span><span class="title">Earning trust in a new team</span><span class="arrow">↗</span></a></div></div>
     </div>
@@ -154,25 +174,25 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}a{color:i
           <details class="record" id="entry-trial"><summary><span class="record-year">2025</span><strong>Questioning evidence</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>The R. v. Silip mock-trial experience involved preparing cross-examination questions, planning contingencies and delivering a closing statement.</p><p>Legal advocacy reinforced the value of distinguishing what someone knows from what they assume.</p><div class="relates">Connected with <a href="#entry-atlas">Mapping global questions</a>.</div></div></details>
         </div>
       </div>
-      <div class="section-figure reveal" aria-hidden="true"><svg viewBox="0 0 520 350"><path class="animated-svg" data-draw="scene" d="M486 343 C402 289 338 223 258 173 C185 131 127 118 34 44"/><path class="animated-svg" data-draw="scene" d="M343 234 C293 226 262 201 235 152"/><path class="animated-svg" data-draw="scene" d="M217 150 C184 153 149 141 116 118"/><circle class="node" cx="34" cy="44" r="9"/><circle class="node" cx="235" cy="152" r="6"/><g transform="rotate(-48 117 114)"><path class="smallleaf" d="M117.0 135.0 C104.0 120.7 108.7 97.8 117.0 93.0 C127.7 98.9 126.1 120.3 117.0 135.0 Z"/></g></svg><span class="figure-annotation">The branch / I</span></div>
+      <div class="section-figure reveal" aria-hidden="true"><span class="figure-annotation">The branch / I</span></div>
     </section>
     <section class="branch-section" id="service" aria-labelledby="service-title">
       <div class="section-copy reveal"><div class="section-marker"><span class="section-num">03</span> Service / Responsibility</div><h2 id="service-title" class="display">Earn<br><em>trust.</em></h2><p class="lead">Responsibility begins before anyone gives you a title.</p><p class="body">Cadet instruction, youth leadership, and voluntary service are places to practice what reflection alone cannot teach.</p>
         <div class="record-collection"><details class="record" id="entry-trust"><summary><span class="record-year">2026</span><strong>Earning trust in a new team</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>A transfer to a new Royal Canadian Air Cadet squadron prompted an observation: experience travels with you; trust does not.</p><p>Effective leadership sometimes begins with listening, learning the routines that already exist, and contributing before seeking to direct.</p><div class="relates">Connected with <a href="#entry-rugby">The back row</a> and <a href="#entry-philosophy">A working philosophy</a>.</div></div></details><details class="record" id="entry-workshop"><summary><span class="record-year">2026</span><strong>Teaching through practice</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>A leadership workshop for young athletes uses cooperative activities to explore resilience, compassion, accountability and teamwork.</p><p>The lesson is deliberately experiential: give people room to solve problems together and examine what they learn.</p><div class="relates">Connected with <a href="#entry-rugby">The back row</a>.</div></div></details><details class="record" id="entry-cadets"><summary><span class="record-year">2021–</span><strong>Learning to instruct</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>The Air Cadet Program has provided opportunities to teach, organize and serve. The evolving record includes earlier experience with 661 RCACS and a later unit transition.</p><p>Earlier responsibilities remain in the archive without being portrayed as present appointments.</p><div class="relates">Connected with <a href="#entry-trust">Earning trust</a> and <a href="#entry-philosophy">A working philosophy</a>.</div></div></details></div>
       </div>
-      <div class="section-figure reveal" aria-hidden="true"><svg viewBox="0 0 520 350"><path class="animated-svg" data-draw="scene" d="M24 341 C107 282 178 202 258 158 C336 116 401 116 481 45"/><path class="animated-svg" data-draw="scene" d="M206 187 C258 205 302 187 336 147"/><path class="animated-svg" data-draw="scene" d="M350 123 C397 159 433 133 455 111"/><circle class="node" cx="481" cy="45" r="9"/><circle class="node" cx="336" cy="147" r="6"/><g transform="rotate(43 457 109)"><path class="smallleaf" d="M457.0 129.0 C444.0 115.4 448.7 93.6 457.0 89.0 C467.7 94.6 466.1 115.0 457.0 129.0 Z"/></g></svg><span class="figure-annotation">The branch / II</span></div>
+      <div class="section-figure reveal" aria-hidden="true"><span class="figure-annotation">The branch / II</span></div>
     </section>
     <section class="branch-section" id="practice" aria-labelledby="practice-title">
       <div class="section-copy reveal"><div class="section-marker"><span class="section-num">04</span> Practice / Making</div><h2 id="practice-title" class="display">Make<br><em>things.</em></h2><p class="lead">Thought becomes useful when it meets material and consequence.</p><p class="body">Research projects, technical education, and work in real settings belong together here: an account of learning by doing.</p>
         <div class="record-collection"><details class="record" id="entry-equiv"><summary><span class="record-year">Archive</span><strong>Equinox restoration</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>An ongoing placeholder for documentation of an Equinox restoration project. Process notes, dated photographs, materials and outcomes can be added once confirmed.</p><p>This entry intentionally makes no claims about completed restoration work.</p></div></details><details class="record" id="entry-manufacturing"><summary><span class="record-year">Early</span><strong>Manufacturing foundations</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>Manufacturing SHSM coursework and applied learning form an earlier foundation in practical problem-solving and making.</p><p>These experiences belong naturally lower in the tree as newer research and professional work grow above them.</p></div></details></div>
       </div>
-      <div class="section-figure reveal" aria-hidden="true"><svg viewBox="0 0 520 350"><path class="animated-svg" data-draw="scene" d="M480 340 C409 297 337 217 258 158 C196 110 121 87 36 46"/><path class="animated-svg" data-draw="scene" d="M368 262 C312 272 275 248 251 211"/><path class="animated-svg" data-draw="scene" d="M139 101 C128 138 94 150 73 151"/><circle class="node" cx="36" cy="46" r="9"/><circle class="node" cx="251" cy="211" r="6"/><g transform="rotate(-60 73 151)"><path class="smallleaf" d="M73.0 170.0 C58.7 157.1 63.9 136.4 73.0 132.0 C84.8 137.3 83.0 156.7 73.0 170.0 Z"/></g></svg><span class="figure-annotation">The branch / III</span></div>
+      <div class="section-figure reveal" aria-hidden="true"><span class="figure-annotation">The branch / III</span></div>
     </section>
     <section class="branch-section" id="field" aria-labelledby="field-title">
       <div class="section-copy reveal"><div class="section-marker"><span class="section-num">05</span> Field / Team</div><h2 id="field-title" class="display">Play<br><em>your part.</em></h2><p class="lead">Sport turns abstract qualities into immediate obligations.</p><p class="body">Discipline, judgement, and team responsibility become tangible in the moments when effort and action count.</p>
         <div class="record-collection"><details class="record" id="entry-rugby"><summary><span class="record-year">Reflection</span><strong>The back row</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>Back-row rugby demands positioning, communication, repeated effort, and decisions under pressure. The experience offers a different language for understanding shared responsibility.</p><p>It connects directly to questions about leadership and instruction, rather than sitting alone as a sporting résumé entry.</p><div class="relates">Connected with <a href="#entry-trust">Earning trust in a new team</a> and <a href="#entry-workshop">Teaching through practice</a>.</div></div></details></div>
       </div>
-      <div class="section-figure reveal" aria-hidden="true"><svg viewBox="0 0 520 350"><path class="animated-svg" data-draw="scene" d="M25 337 C110 273 157 241 257 171 C315 126 391 98 478 45"/><path class="animated-svg" data-draw="scene" d="M217 196 C251 175 267 139 271 108"/><path class="animated-svg" data-draw="scene" d="M367 115 C396 143 431 139 448 124"/><circle class="node" cx="478" cy="45" r="9"/><circle class="node" cx="271" cy="108" r="6"/><g transform="rotate(48 447 123)"><path class="smallleaf" d="M447.0 142.0 C432.7 129.1 437.9 108.4 447.0 104.0 C458.8 109.3 457.0 128.7 447.0 142.0 Z"/></g></svg><span class="figure-annotation">The branch / IV</span></div>
+      <div class="section-figure reveal" aria-hidden="true"><span class="figure-annotation">The branch / IV</span></div>
     </section>
   </div>
   <section class="trunk" id="trunk" aria-labelledby="trunk-title">
@@ -180,12 +200,13 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}a{color:i
     <div class="trunk-records reveal"><div class="record-collection"><details class="record" id="entry-bio"><summary><span class="record-year">Ongoing</span><strong>A continuing biography</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>A developing record of learning, service, sport, work, and a growing interest in political science and public life.</p><p>The archive is built to accommodate change in discipline, profession and perspective, without erasing what came first.</p></div></details><details class="record" id="entry-philosophy"><summary><span class="record-year">Principle</span><strong>A working philosophy</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>“To be a leader is to be liquid” describes adaptability anchored by purpose. A commitment to leadership should be tested by the situations where it is practiced.</p><div class="relates">Connected with <a href="#entry-rugby">The back row</a> and <a href="#entry-trust">Earning trust</a>.</div></div></details></div></div>
   </section>
   <section class="roots" id="roots" aria-labelledby="roots-title">
-    <svg class="root-figure" viewBox="0 0 1100 440" preserveAspectRatio="none" aria-hidden="true"><path class="animated-svg" data-draw="roots" d="M549 0 C555 120 544 167 545 202 C515 241 422 252 325 335 C273 365 191 393 98 433"/><path class="animated-svg" data-draw="roots" d="M545 204 C596 247 707 258 793 345 C837 382 913 403 1011 433"/><path class="animated-svg" data-draw="roots" d="M508 237 C475 277 454 335 451 433"/><path class="animated-svg" data-draw="roots" d="M581 239 C611 286 637 329 648 433"/><path class="animated-svg" data-draw="roots" d="M393 274 C327 273 272 258 196 275"/><path class="animated-svg" data-draw="roots" d="M716 294 C783 273 856 274 916 285"/></svg>
+    
     <div class="roots-inner"><div class="reveal"><div class="section-marker"><span class="section-num">07</span> Earlier chapters / The roots</div><h2 class="display" id="roots-title">What<br><em>came first.</em></h2><p class="lead">A history worth keeping, even when it stops being the headline.</p></div><div class="record-collection reveal"><details class="record" id="entry-timeline"><summary><span class="record-year">2021–</span><strong>A dated record</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>2021: beginning of Air Cadets involvement. 2025: legal advocacy and instructional experiences. 2026: new research and a transition into a different cadet squadron.</p><p>Dates and public claims in this prototype remain subject to editorial verification.</p></div></details><details class="record" id="entry-school"><summary><span class="record-year">Archive</span><strong>Education and origins</strong><span class="plus" aria-hidden="true">+</span></summary><div class="record-body"><p>Earlier academic study, co-operative education and practical coursework are preserved as foundations rather than omitted when newer work becomes prominent.</p></div></details></div></div>
   </section>
+  </div><!-- The continuous tree spans the introduction, canopy, branches, trunk and roots. -->
   <section class="end" id="contact" aria-labelledby="end-title"><svg class="end-arc" viewBox="0 0 150 90" aria-hidden="true"><path class="animated-svg" data-draw="end" d="M75 87 C75 54 69 36 74 7 M74 49 C46 32 25 30 3 9 M74 41 C97 30 116 22 146 9"/></svg><div class="section-marker reveal"><span class="section-num">08</span> The unfinished page</div><h2 class="display reveal" id="end-title">There is<br><em>more to come.</em></h2><p class="reveal">The point of a living archive is that it cannot be finished. New questions, projects and experiences will find their place in the branches.</p><button type="button" class="text-link reveal" id="contact-open">Begin a conversation <span class="link-arrow" aria-hidden="true">↗</span></button></section>
 </main>
-<footer class="footer"><span>© 2026 Dulten Richard Fromentin · Design study 06</span><span>The tree is a record, never a finished portrait.</span><a href="#top">Return to the canopy ↑</a></footer>
+<footer class="footer"><span>© 2026 Dulten Richard Fromentin · Design study 07</span><span>One tree. A continuous record.</span><a href="#top">Return to the canopy ↑</a></footer>
 <dialog class="dialog" id="archive-dialog" aria-labelledby="archive-dialog-title"><div class="dialog-inner"><button type="button" class="dialog-close" aria-label="Close archive search" id="archive-close">×</button><div class="eyebrow">Search the living archive</div><h2 id="archive-dialog-title">Find a thread.</h2><label for="archive-search" class="form-note">Search titles, topics and text</label><input id="archive-search" type="search" placeholder="Try: leadership, cities, rugby…" autocomplete="off"><div id="archive-results" class="archive-results" aria-live="polite"></div></div></dialog>
 <dialog class="dialog" id="contact-dialog" aria-labelledby="contact-dialog-title"><div class="dialog-inner"><button type="button" class="dialog-close" id="contact-close" aria-label="Close contact form">×</button><div class="eyebrow">A correspondence / Design preview</div><h2 id="contact-dialog-title">Begin a conversation.</h2><p>This demonstrates the intended form experience. No message is sent or stored in this design preview.</p><form class="form-grid" id="contact-form" novalidate><label for="contact-name">Your name<input id="contact-name" name="name" autocomplete="name" required></label><label for="contact-email">Your email address<input id="contact-email" type="email" name="email" autocomplete="email" required></label><label for="contact-message">Your message<textarea id="contact-message" name="message" required></textarea></label><button type="submit">Validate message ↗</button><p class="form-note">Preview only · Real serverless delivery has not been connected.</p><p id="form-status" class="form-status" role="status" aria-live="polite"></p></form></div></dialog>
 <script>
@@ -207,6 +228,135 @@ const cd=document.getElementById('contact-dialog');const contactOpen=document.ge
 document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget,status=document.getElementById('form-status');for(const key of ['name','email','message']){const el=f.elements[key];if(!el.value.trim()||!el.validity.valid){status.textContent='Please check the '+key+' field.';el.setAttribute('aria-invalid','true');el.focus();return}el.removeAttribute('aria-invalid')}status.textContent='The fields are valid. This is a design preview: your message was not sent or stored.'});
 const railLinks=[...document.querySelectorAll('.progress-rail a')];const sections=['top','canopy','branches','trunk','roots','contact'].map(id=>document.getElementById(id));
 const obs=new IntersectionObserver(entries=>{for(const ent of entries){if(ent.isIntersecting){const id=ent.target.id;for(const a of railLinks){if(a.hash==='#'+id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')}}}},{rootMargin:'-30% 0px -55% 0px'});sections.forEach(x=>obs.observe(x));
+
+// One organic stem belongs to the whole site. Its geometry is anchored to real
+// section positions, so opening a record or rotating a tablet cannot break it.
+const treeWorld=document.getElementById('tree-world');
+const treeSvg=document.getElementById('continuous-tree');
+const treeForm=document.getElementById('tree-form');
+const SVGNS='http://www.w3.org/2000/svg';
+let treeMotionTracks=[],treePetals=[];let treeRebuildQueued=false;
+function treeNode(name,attrs,parent=treeForm){const el=document.createElementNS(SVGNS,name);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));parent.append(el);return el}
+function localRect(el){if(!el)return{x:0,y:0,width:0,height:0};const r=el.getBoundingClientRect(),w=treeWorld.getBoundingClientRect();return{x:r.left-w.left,y:r.top-w.top,width:r.width,height:r.height}}
+function smoothCurve(nodes){let d='M'+nodes[0].x.toFixed(1)+' '+nodes[0].y.toFixed(1);for(let i=0;i<nodes.length-1;i++){const a=nodes[Math.max(0,i-1)],b=nodes[i],c=nodes[i+1],e=nodes[Math.min(nodes.length-1,i+2)];const q1x=b.x+(c.x-a.x)/6,q1y=b.y+(c.y-a.y)/6,q2x=c.x-(e.x-b.x)/6,q2y=c.y-(e.y-b.y)/6;d+=` C${q1x.toFixed(1)} ${q1y.toFixed(1)} ${q2x.toFixed(1)} ${q2y.toFixed(1)} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`;}return d}
+function branchCurve(a,b,offset=0){const dx=b.x-a.x,dy=b.y-a.y;return `M${a.x} ${a.y} C${a.x+dx*.29+offset} ${a.y+dy*.05},${a.x+dx*.75} ${b.y-dy*.18},${b.x} ${b.y}`}
+function addTrack(d,cls,width,beginY=0,endY=0,mainStem=false){const p=treeNode('path',{d,class:cls,'stroke-width':width});let len=0;try{len=p.getTotalLength()}catch{}treeMotionTracks.push({p,len,beginY,endY,mainStem});return p}
+function addLeaf(x,y,angle=0,size=14,phase=0){const g=treeNode('g',{transform:`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${angle.toFixed(1)})`});const shape=treeNode('path',{class:'tree-leaf',d:`M0 0 C${-size*.18} ${-size*.30} ${-size*.46} ${-size*.37} ${-size*.46} ${-size*.65} C${-size*1.09} ${-size*.74} ${-size*1.09} ${-size*1.08} ${-size*.53} ${-size*1.23} C${-size*1.07} ${-size*1.54} ${-size*.78} ${-size*1.83} ${-size*.32} ${-size*1.83} C${-size*.59} ${-size*2.14} ${-size*.12} ${-size*2.38} 0 ${-size*2.45} C${size*.12} ${-size*2.38} ${size*.59} ${-size*2.14} ${size*.32} ${-size*1.83} C${size*.78} ${-size*1.83} ${size*1.07} ${-size*1.54} ${size*.53} ${-size*1.23} C${size*1.09} ${-size*1.08} ${size*1.09} ${-size*.74} ${size*.46} ${-size*.65} C${size*.46} ${-size*.37} ${size*.18} ${-size*.30} 0 0 Z`},g);shape.style.animationDelay=`-${phase%7}s`;treeNode('path',{class:'tree-leaf-vein',d:`M0 -1 L0 ${-size*2.23} M0 ${-size*.77} L${-size*.46} ${-size*.96} M0 ${-size*.77} L${size*.46} ${-size*.96} M0 ${-size*1.43} L${-size*.46} ${-size*1.57} M0 ${-size*1.43} L${size*.46} ${-size*1.57}`},g);treePetals.push({g,shape,y});return g}
+function cxAt(y,anchors){if(y<=anchors[0].y)return anchors[0].x;for(let i=1;i<anchors.length;i++)if(y<=anchors[i].y){const t=(y-anchors[i-1].y)/Math.max(1,anchors[i].y-anchors[i-1].y);const u=t*t*(3-2*t);return anchors[i-1].x+(anchors[i].x-anchors[i-1].x)*u}return anchors[anchors.length-1].x}
+function buildWholeTree(){
+  treeForm.replaceChildren();treeMotionTracks=[];treePetals=[];
+  const w=treeWorld.clientWidth,h=treeWorld.offsetHeight,mobile=w<=750;
+  treeSvg.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  const hero=localRect(document.querySelector('.hero')),graphic=localRect(document.querySelector('.hero-graphic'));
+  const canopy=localRect(document.getElementById('canopy')),map=localRect(document.querySelector('.canopy-map'));
+  const story=localRect(document.querySelector('.growth-story')),trunk=localRect(document.getElementById('trunk')),roots=localRect(document.getElementById('roots'));
+  const heroX=mobile?w*.70:graphic.x+graphic.width*.52;
+  const central=mobile?w*.52:map.x+map.width*.50;
+  const lower=mobile?Math.max(31,w*.078):w*.5;
+  const y0=hero.y+hero.height*.19;
+  const anchors=[
+    {x:heroX,y:y0},
+    {x:heroX-12,y:hero.y+hero.height*.51},
+    {x:mobile?w*.84:heroX-44,y:hero.y+hero.height*.85},
+    {x:mobile?w*.94:central+13,y:canopy.y+canopy.height*.11},
+    {x:mobile?w*.92:central+13,y:map.y+map.height*.03},
+    {x:central-6,y:map.y+map.height*.29},
+    {x:central+5,y:map.y+map.height*.68},
+    {x:mobile?w*.46:central,y:canopy.y+canopy.height*.95},
+    {x:lower,y:story.y+story.height*.12},
+    {x:lower+(!mobile?9:0),y:story.y+story.height*.50},
+    {x:lower-(!mobile?5:0),y:story.y+story.height*.90},
+    {x:lower,y:trunk.y+trunk.height*.53},
+    {x:lower+(!mobile?12:0),y:roots.y+roots.height*.18},
+    {x:lower,y:roots.y+roots.height*.47}
+  ];
+  const spine=smoothCurve(anchors);
+  // Pale carved outline; warm trunk ink; hairline highlight. All share the exact same path.
+  addTrack(spine,'tree-wash',mobile?14:19,y0,roots.y+roots.height*.47,true);
+  addTrack(spine,'tree-skeleton',mobile?6:9,y0,roots.y+roots.height*.47,true);
+  addTrack(spine,'tree-grain',1.15,y0,roots.y+roots.height*.47,true);
+  function sprout(ax,ay,bx,by,index=0,detail=true){
+    const a={x:ax,y:ay},b={x:bx,y:by};const d=branchCurve(a,b);
+    addTrack(d,'tree-skeleton',mobile?2.3:3.6,ay,by);
+    if(detail){
+      const dx=bx-ax,dy=by-ay,side=dx>=0?1:-1;
+      const t={x:ax+dx*.55,y:ay+dy*.60};
+      addTrack(branchCurve(t,{x:t.x+side*(mobile?13:26),y:t.y-(mobile?16:34)}),'tree-twig',1.4,ay,by);
+      addLeaf(bx,by,side*34, mobile?7.5:11,index);
+      addLeaf(t.x+side*(mobile?13:26),t.y-(mobile?16:34),side*-17,mobile?6:9,index+2);
+      if(!mobile)addLeaf(ax+dx*.78,ay+dy*.72,side*55,8,index+4);
+    }
+    treeNode('circle',{cx:ax,cy:ay,r:mobile?2.7:4.3,class:'tree-node'});
+  }
+  // One crown in the introductory field, emerging directly from the same trunk.
+  for(const [i,b] of [
+    [-.28,-.17,.28], [.30,-.24,.32],[-.38,-.30,.48],[.29,-.31,.55],[-.24,-.21,.71],[.25,-.18,.77]
+  ].entries()){
+    const [dx,dy,at]=b,ay=hero.y+hero.height*at,ax=cxAt(ay,anchors);
+    sprout(ax,ay,ax+dx*(mobile?w*.43:w*.31),ay+dy*hero.height,i);
+  }
+  // The four conceptual limbs terminate at their actual labelled positions.
+  for(const [i,selector] of ['.branch-link.ideas','.branch-link.service','.branch-link.practice','.branch-link.field'].entries()){
+    const r=localRect(document.querySelector(selector));
+    const midY=r.y+r.height*.62;const isLeft=(r.x+r.width*.5)<w*.5;
+    const edgeX=isLeft?r.x+r.width+4:r.x-4;
+    sprout(cxAt(midY+18,anchors),midY+18,edgeX,midY,i+10,false);
+    const leafX=(cxAt(midY,anchors)+edgeX)*.55,sgn=isLeft?-1:1;
+    addLeaf(leafX,midY-9,sgn*52,mobile?6:10,i+12);
+    if(!mobile)addLeaf(leafX+sgn*27,midY-16,sgn*-17,7.6,i+14);
+  }
+  // Four narrative branches in the chapter sequence are connected at the precise world height.
+  for(const [i,id] of ['inquiry','service','practice','field'].entries()){
+    const section=document.getElementById(id),sec=localRect(section),figure=localRect(section.querySelector('.section-figure'));
+    const y=figure.y+figure.height*.53,x=cxAt(y,anchors);
+    const destination=mobile?{x:Math.min(w-38,x+(i%2?94:118)),y:y-17}:{x:figure.x+figure.width*(i%2?.27:.73),y:y-figure.height*.28};
+    sprout(x,y+18,destination.x,destination.y,i+20);
+    // Archival growth ring: small, deliberate, never a disconnected decorative scene.
+    if(!mobile){treeNode('circle',{cx:x,cy:y+18,r:11+i*2,class:'tree-ring'});treeNode('circle',{cx:x,cy:y+18,r:17+i*2,class:'tree-ring'})}
+  }
+  // Wood grain becomes a quiet pair of grooves near the biography.
+  const ty=trunk.y+trunk.height*.28,tx=cxAt(ty,anchors);
+  addTrack(`M${tx-8} ${ty} C${tx-12} ${ty+trunk.height*.20} ${tx-2} ${ty+trunk.height*.40} ${tx-10} ${ty+trunk.height*.58}`,'tree-grain',1,ty,ty+trunk.height*.58);
+  addTrack(`M${tx+8} ${ty+trunk.height*.05} C${tx+13} ${ty+trunk.height*.23} ${tx+3} ${ty+trunk.height*.46} ${tx+12} ${ty+trunk.height*.65}`,'tree-grain',1.3,ty,ty+trunk.height*.65);
+  treeNode('ellipse',{cx:tx,cy:ty+trunk.height*.23,rx:8,ry:14,class:'tree-knot'});
+  treeNode('ellipse',{cx:tx,cy:ty+trunk.height*.23,rx:3,ry:6,class:'tree-knot'});
+  // Roots grow *from* the trunk terminus rather than beginning as another SVG.
+  const ry=roots.y+roots.height*.54,rx=cxAt(roots.y+roots.height*.47,anchors);
+  addTrack(`M${rx} ${roots.y+roots.height*.47} Q${rx-3} ${ry-28} ${rx} ${ry}`,'tree-skeleton',mobile?5:9,roots.y+roots.height*.47,ry);
+  for(const [i,[dx,end]] of [
+    [-.30,.96],[.30,.96],[-.19,.99],[.19,.99],[-.36,.94],[.36,.94],[-.08,.995],[.08,.995]
+  ].entries()){
+    const bx=mobile?Math.max(0,Math.min(w,rx+dx*w*.8)):rx+dx*w*.72;
+    const by=roots.y+roots.height*end;
+    addTrack(`M${rx} ${ry-6} C${rx+dx*w*.11} ${ry+roots.height*.15} ${bx-dx*w*.13} ${by-roots.height*.10} ${bx} ${by}`,'tree-root',mobile?1.7:2.1,ry,by);
+    if(i<6){const sx=rx+(bx-rx)*.66,sy=ry+(by-ry)*.68;addTrack(`M${sx} ${sy} Q${sx+dx*w*.07} ${sy-22} ${sx+dx*w*.14} ${sy-29}`,'tree-grain',1.05,sy,sy)}
+  }
+  // Small rings and gold flecks give the tree the quality of engraved botanical study.
+  for(let i=0;i<12;i++){
+    const yy=canopy.y+canopy.height*(.14+i*.06);const xx=cxAt(yy,anchors)+(i%2?-1:1)*(mobile?12:22);
+    treeNode('circle',{cx:xx,cy:yy,r:(i%3===0?1.7:.85),class:'tree-gold'});
+  }
+  if(!motionOK()){for(const t of treeMotionTracks){t.p.style.strokeDasharray='none';t.p.style.strokeDashoffset='0'};return}
+  for(const t of treeMotionTracks){t.p.style.strokeDasharray=String(t.len);t.p.style.strokeDashoffset= t.mainStem ? '0' : String(t.len)}
+  paintTreeMotion();
+}
+function paintTreeMotion(){if(!treeWorld||!treeMotionTracks.length)return;
+  const wrect=treeWorld.getBoundingClientRect();const visibleY=-wrect.top+innerHeight*.84;
+  for(const t of treeMotionTracks){if(t.mainStem){t.p.style.strokeDashoffset='0';continue}let p=clamp((visibleY-t.beginY+110)/Math.max(220,t.endY-t.beginY+110));
+    // The precise same stroke continues between sections, never resetting.
+    if(t.endY<=t.beginY+1)p=visibleY>=t.beginY?1:0;
+    t.p.style.strokeDashoffset=String(t.len*(1-p));
+  }
+  // Leaves are finite and meaningful; no random particle clouds.
+  for(const l of treePetals){const visible=visibleY>=l.y-50;l.g.style.opacity=visible?'1':'0';l.shape.classList.toggle('breathed',visible)}
+}
+function queueTreeRebuild(){if(treeRebuildQueued)return;treeRebuildQueued=true;requestAnimationFrame(()=>{treeRebuildQueued=false;buildWholeTree()})}
+// Build before reduced-motion short-circuit: the accessible static version is still a whole tree.
+buildWholeTree();
+window.addEventListener('resize',queueTreeRebuild,{passive:true});
+const layoutObserver=new ResizeObserver(()=>queueTreeRebuild());layoutObserver.observe(treeWorld);
+document.querySelectorAll('.record').forEach(r=>r.addEventListener('toggle',()=>requestAnimationFrame(queueTreeRebuild)));
+
 if(!motionOK())return;
 // Enhance HTML that is already complete: drawing and reveal never carry content semantics.
 document.documentElement.classList.add('js-motion');
@@ -218,7 +368,7 @@ const branchLinks=[...document.querySelectorAll('.branch-link')];const leaves=[.
 let raf=0;let pointerX=0,pointerY=0;
 const onScroll=()=>{if(!raf)raf=requestAnimationFrame(update)};
 function update(){raf=0;const h=innerHeight,sc=scrollY,limit=Math.max(1,document.documentElement.scrollHeight-h),ratio=clamp(sc/limit);document.getElementById('scrollmeter').style.transform=`scaleX(${ratio})`;
-const heroRect=hero.getBoundingClientRect();const heroP=clamp((h-heroRect.top)/(h+heroRect.height));document.querySelector('.hero-graphic').style.setProperty('--hero-shift',`${(heroP-.2)*-52+pointerY*5}px`);
+paintTreeMotion();const heroRect=hero.getBoundingClientRect();const heroP=clamp((h-heroRect.top)/(h+heroRect.height));// The tree is one world-space object; do not parallax a disconnected seedling.
 for(const o of paths){const owner=o.container;const r=owner.getBoundingClientRect();let p=clamp((h*.9-r.top)/(r.height+h*.30));if(o.kind==='hero')p=clamp((performance.now()-pageEnteredAt-220)/2250);else if(o.kind==='roots')p=clamp((h*.86-r.top)/(r.height*.45));else if(o.kind==='end')p=clamp((h*.9-r.top)/(r.height*.55));else if(o.kind==='scene')p=clamp((h*.86-r.top)/(r.height*.66));else if(o.kind==='canopy')p=clamp((h*.87-r.top)/(r.height*.72));const ease=1-Math.pow(1-p,2);o.path.style.strokeDashoffset=String(o.length*(1-ease))}
 const cr=document.getElementById('canopy').getBoundingClientRect();const cp=clamp((h*.78-cr.top)/(cr.height*.65));branchLinks.forEach((a,i)=>{if(cp>Math.min(0.8,.1+i*.13))a.classList.add('is-visible')});leaves.forEach((l,i)=>{if(cp>.13+i*.12)l.classList.add('awake')});
 }
