@@ -39,13 +39,6 @@
     if (Object.keys(campaign).length) sessionStorage.setItem("site_campaign", JSON.stringify(campaign));
     Object.assign(campaign, JSON.parse(sessionStorage.getItem("site_campaign") || "{}"));
   } catch (_) {}
-  emit("page_view", {
-    site_name: SITE,
-    page_path: location.pathname + location.hash,
-    page_referrer: document.referrer || "direct",
-    ...campaign
-  });
-
   // Analytics provider adapter: once a real GA4 ID is supplied, send events to GA4.
   if (GA4_MEASUREMENT_ID && /^G-[A-Z0-9]+$/.test(GA4_MEASUREMENT_ID)) {
     const ga = document.createElement("script");
@@ -61,6 +54,13 @@
       window.gtag("event", eventName, params);
     });
   }
+
+  emit("page_view", {
+    site_name: SITE,
+    page_path: location.pathname + location.hash,
+    page_referrer: document.referrer || "direct",
+    ...campaign
+  });
 
   document.querySelectorAll("[data-track]").forEach(el => {
     el.addEventListener("click", () => emit("site_interaction", {
@@ -94,9 +94,7 @@
   const milestones = [25, 50, 75, 90];
   const recorded = new Set();
   let maxScroll = 0;
-  let lastActive = Date.now();
-  const markActivity = () => { lastActive = Date.now(); };
-  ["pointerdown", "keydown", "scroll", "touchstart"].forEach(type => window.addEventListener(type, markActivity, { passive: true }));
+  const sessionStartedAt = Date.now();
   window.addEventListener("scroll", () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (max <= 0) return;
@@ -114,7 +112,7 @@
   const reportExit = () => {
     if (sentExit) return;
     sentExit = true;
-    emit("page_exit", { max_scroll_percent: maxScroll, engaged_seconds: Math.round((Date.now() - lastActive) / 1000) });
+    emit("page_exit", { max_scroll_percent: maxScroll, session_duration_seconds: Math.round((Date.now() - sessionStartedAt) / 1000) });
   };
   window.addEventListener("pagehide", reportExit);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") reportExit(); });
