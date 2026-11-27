@@ -7,6 +7,19 @@
   const emit = (name, params = {}) => {
     const detail = { event: name, ...params, page_location: location.href, page_title: document.title };
     window.dispatchEvent(new CustomEvent("site:analytics", { detail }));
+    // Send custom interactions to Umami. Pageviews are collected automatically by its tracker.
+    if (name !== "page_view" && window.umami && typeof window.umami.track === "function") {
+      const eventData = { ...params };
+      delete eventData.page_location;
+      delete eventData.page_title;
+      if (eventData.destination) {
+        try {
+          const destinationUrl = new URL(eventData.destination, location.href);
+          eventData.destination = destinationUrl.origin + destinationUrl.pathname;
+        } catch (_) { delete eventData.destination; }
+      }
+      window.umami.track(name, eventData);
+    }
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(detail);
   };
