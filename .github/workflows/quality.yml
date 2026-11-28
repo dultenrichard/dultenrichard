@@ -1,0 +1,50 @@
+name: Website quality and discovery
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 14 * * 1'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate sitemap, RSS, JSON-LD and internal links
+        run: python3 scripts/site_audit.py --check
+      - name: Check external evidence links
+        if: github.event_name != 'push'
+        run: python3 scripts/site_audit.py --check --external | tee external-links.tsv
+      - uses: actions/upload-artifact@v4
+        if: always() && github.event_name != 'push'
+        with:
+          name: external-link-report
+          path: external-links.tsv
+          if-no-files-found: ignore
+  lighthouse:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [mobile, desktop]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install -g @lhci/cli@0.16.1
+      - name: Run Lighthouse CI
+        run: lhci autorun --config=lighthouserc.cjs
+        env:
+          AUDIT_DEVICE: ${{ matrix.device }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-${{ matrix.device }}
+          path: |
+            .lighthouseci/
+            lighthouse-reports/
+          include-hidden-files: true
+          if-no-files-found: warn
