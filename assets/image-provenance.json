@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "recorded_on": "2026-11-27",
+  "note": "Source hash identifies the exact file supplied in chat, not necessarily a camera original. Git blob identifiers link the web derivatives to repository history. This is an editorial provenance record, not cryptographic capture authentication or a copyright licence. No GPS, camera serial, private account identifiers, or inferred photographer credit are published.",
+  "assets": [
+    {
+      "asset": "assets/headshot.webp",
+      "title": "Dulten Richard - portrait",
+      "description": "Portrait supplied for the personal website, 2026.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "496bd6f08e505edd639582a8612be92e122944224d61c15183193aeda286a5fd",
+      "previous_webp_git_blob_sha": "a1f8fb3c56ca9f8dc8187ea88455a72c9d42f73f",
+      "published_webp_git_blob_sha": "85ecf232b8335f6cf04dca5b62fe334c4d35a838",
+      "event_or_context_date": "2026",
+      "width": 727,
+      "height": 1000,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/",
+        "https://dultenrichard.github.io/dultenrichard/press.html"
+      ]
+    },
+    {
+      "asset": "assets/rugby.webp",
+      "title": "School rugby, Grade 10",
+      "description": "School rugby photograph from Grade 10, supplied for the personal archive.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "0f66989d3cb38c738c98c3f52b91708112179c8343dd11866c0a7aab58bfa2cc",
+      "previous_webp_git_blob_sha": "f1a33a71c8a30f8a991f2f206c3f1ddb193237a1",
+      "published_webp_git_blob_sha": "34a807c2bc1b93ae0dae54f277ea4c14eaf6089f",
+      "event_or_context_date": "2023-2024",
+      "width": 750,
+      "height": 1000,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/2024.html"
+      ]
+    },
+    {
+      "asset": "assets/sunset.webp",
+      "title": "Sunset",
+      "description": "Sunset photograph supplied for the personal website.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "b4785325a7ae56de53561316b60178296073c055999ac8e0b7cc2c31a95efe23",
+      "previous_webp_git_blob_sha": "74e10db8007875461051258a453b83fc4e4703df",
+      "published_webp_git_blob_sha": "0ff473500392df98373389c9cfdf3ec16481bb99",
+      "event_or_context_date": null,
+      "width": 1000,
+      "height": 1000,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/"
+      ]
+    },
+    {
+      "asset": "assets/suit.webp",
+      "title": "Dulten Richard - formal portrait",
+      "description": "Formal portrait wearing a poppy, supplied for the personal website, 2026.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "ecbc9a59d939ee6b934f2db793492e18fafb09c30ed17798be23d0bc52d623bb",
+      "previous_webp_git_blob_sha": "af72b2a664920d5148d90011b14895a26abea893",
+      "published_webp_git_blob_sha": "0132332b1ba286e484161126964ea3f765d06a4b",
+      "event_or_context_date": "2026",
+      "width": 709,
+      "height": 946,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/"
+      ]
+    },
+    {
+      "asset": "assets/remembrance.webp",
+      "title": "Remembrance Day ceremony",
+      "description": "Air cadet in ceremonial uniform at a Remembrance Day ceremony, supplied for the personal archive.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "a6e3e8d56c8f70feb6a9f400d93477d5a14c807a550d740b5a48a25b6aae7112",
+      "previous_webp_git_blob_sha": "9809d994b1561e5ff6c4194f43a5b1adea09f2ce",
+      "published_webp_git_blob_sha": "18db8d3555c0e22f5f47a8699a7b04c5c9442c66",
+      "event_or_context_date": "2026-11-11",
+      "width": 750,
+      "height": 1000,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/2026.html"
+      ]
+    },
+    {
+      "asset": "assets/cadets.webp",
+      "title": "Remembrance Day - Air Cadets",
+      "description": "Two Air Cadets in ceremonial uniform, supplied for the personal archive.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "9bafa9ecf37c2122fddd400d52f94b4bcf949c91e2dada1e8c0dfd66a65ec34f",
+      "previous_webp_git_blob_sha": "25a91df7ad1d0a36895803716efcb5ac3eef17a6",
+      "published_webp_git_blob_sha": "8ab298e8cb213eaac8bdeb3d8c040f5801fd3495",
+      "event_or_context_date": "2026-11-11",
+      "width": 715,
+      "height": 1000,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/2026.html"
+      ]
+    },
+    {
+      "asset": "assets/bring-back-cadets.webp",
+      "title": "Bring Back Cadets artwork",
+      "description": "Campaign artwork supplied by Dulten Richard for the Bring Back Cadets archive.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "062b1c9096603adef41df0c51b917b611b0535266b5058c4317e49eea0b98b6d",
+      "previous_webp_git_blob_sha": "7fea200d07d245dd48b63597a483b3e8b530a643",
+      "published_webp_git_blob_sha": "10d9188589a9d6b9e663cecad26a769ca3ad70f6",
+      "event_or_context_date": null,
+      "width": 1000,
+      "height": 1000,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/2026.html"
+      ]
+    },
+    {
+      "asset": "assets/ted-ed.webp",
+      "title": "TED-Ed Idea Workshop certificate",
+      "description": "Certificate of completion issued to Dulten Fromentin by TED-Ed; not a speaking credential.",
+      "source": "User-supplied upload",
+      "source_upload_sha256": "50b7797157052f4c18491546b24682bfde72ab74c191fc90cad829c7eb0d5b27",
+      "previous_webp_git_blob_sha": "353816015060a228f44a1d7514255c7b80a8c21b",
+      "published_webp_git_blob_sha": "0433c9bf669184ef17c50d71a4339b45f56cea92",
+      "event_or_context_date": null,
+      "width": 1000,
+      "height": 772,
+      "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
+      "rights": "Original creator and reuse permissions not independently verified",
+      "pages": [
+        "https://dultenrichard.github.io/dultenrichard/2026.html"
+      ]
+    }
+  ]
+}
