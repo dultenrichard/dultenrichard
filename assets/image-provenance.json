@@ -118,10 +118,12 @@
       "width": 1000,
       "height": 1000,
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
-      "rights": "Original creator and reuse permissions not independently verified",
+      "rights": "Artwork credited to Mia; copyright ownership and reuse permissions not independently verified",
       "pages": [
         "https://dultenrichard.github.io/dultenrichard/experience.html"
-      ]
+      ],
+      "creator": "Mia",
+      "creator_attribution": "Confirmed by site owner"
     },
     {
       "asset": "assets/ted-ed.webp",
