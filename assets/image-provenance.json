@@ -35,7 +35,7 @@
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
       "pages": [
-        "https://dultenrichard.github.io/dultenrichard/2024.html"
+        "https://dultenrichard.github.io/dultenrichard/experience.html"
       ]
     },
     {
@@ -51,9 +51,8 @@
       "height": 1000,
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
-      "pages": [
-        "https://dultenrichard.github.io/dultenrichard/"
-      ]
+      "pages": [],
+      "publication_status": "Retained in repository; no longer displayed"
     },
     {
       "asset": "assets/suit.webp",
@@ -69,7 +68,8 @@
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
       "pages": [
-        "https://dultenrichard.github.io/dultenrichard/"
+        "https://dultenrichard.github.io/dultenrichard/",
+        "https://dultenrichard.github.io/dultenrichard/press.html"
       ]
     },
     {
@@ -86,7 +86,7 @@
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
       "pages": [
-        "https://dultenrichard.github.io/dultenrichard/2026.html"
+        "https://dultenrichard.github.io/dultenrichard/experience.html"
       ]
     },
     {
@@ -103,7 +103,7 @@
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
       "pages": [
-        "https://dultenrichard.github.io/dultenrichard/2026.html"
+        "https://dultenrichard.github.io/dultenrichard/experience.html"
       ]
     },
     {
@@ -120,7 +120,7 @@
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
       "pages": [
-        "https://dultenrichard.github.io/dultenrichard/2026.html"
+        "https://dultenrichard.github.io/dultenrichard/experience.html"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "embedded_metadata": "XMP Dublin Core title, description, source, relation; Photoshop Source; document identifier derived from supplied upload SHA-256",
       "rights": "Original creator and reuse permissions not independently verified",
       "pages": [
-        "https://dultenrichard.github.io/dultenrichard/2026.html"
+        "https://dultenrichard.github.io/dultenrichard/experience.html"
       ]
     }
   ]
