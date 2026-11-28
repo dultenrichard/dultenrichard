@@ -4,15 +4,29 @@
     <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/headshot.webp</image:loc></image:image>
     <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/suit.webp</image:loc></image:image>
   </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/building-bring-back-cadets.html</loc>
+  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/cadet-leadership.html</loc>
+  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/editorial.html</loc>
+  </url>
   <url><loc>https://dultenrichard.github.io/dultenrichard/experience.html</loc>
-    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/rugby.webp</image:loc></image:image>
-    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/remembrance.webp</image:loc></image:image>
-    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/cadets.webp</image:loc></image:image>
     <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/bring-back-cadets.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/cadets.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/remembrance.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/rugby.webp</image:loc></image:image>
     <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/ted-ed.webp</image:loc></image:image>
+  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/leadership-without-title.html</loc>
+  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/perspectives.html</loc>
   </url>
   <url><loc>https://dultenrichard.github.io/dultenrichard/press.html</loc>
     <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/headshot.webp</image:loc></image:image>
     <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/suit.webp</image:loc></image:image>
+  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/young-people-and-institutions.html</loc>
+  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/youth-opportunity.html</loc>
   </url>
 </urlset>
