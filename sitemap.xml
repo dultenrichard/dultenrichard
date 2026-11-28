@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dultenrichard.github.io/dultenrichard/</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/2019.html</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/2021.html</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/2023.html</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/2024.html</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/2025.html</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/2026.html</loc></url>
-  <url><loc>https://dultenrichard.github.io/dultenrichard/press.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/</loc>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/headshot.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/sunset.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/suit.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/2019.html</loc>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/2021.html</loc>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/2023.html</loc>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/2024.html</loc>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/rugby.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/2025.html</loc>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/2026.html</loc>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/remembrance.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/cadets.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/bring-back-cadets.webp</image:loc></image:image>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/ted-ed.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://dultenrichard.github.io/dultenrichard/press.html</loc>
+    <image:image><image:loc>https://dultenrichard.github.io/dultenrichard/assets/headshot.webp</image:loc></image:image>
+  </url>
 </urlset>
