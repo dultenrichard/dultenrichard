@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://dultenrichard.github.io/dultenrichard/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/2019.html</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/2021.html</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/2023.html</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/2024.html</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/2025.html</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/2026.html</loc></url>
+  <url><loc>https://dultenrichard.github.io/dultenrichard/press.html</loc></url>
 </urlset>
