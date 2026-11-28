@@ -1,0 +1,56 @@
+{
+  "updated": "2026-11-27",
+  "note": "First-person or private records are not independent confirmation. No private Drive links are published.",
+  "sources": [
+    {
+      "claim": "Cadet service and appointments",
+      "basis": "First-person records and October 2026 résumé; not an independent personnel record.",
+      "reference": "experience.html#cadet-leadership"
+    },
+    {
+      "claim": "2024 instructor training",
+      "basis": "October 2026 résumé; training certificate not independently inspected.",
+      "reference": "experience.html#drill-ceremonial"
+    },
+    {
+      "claim": "Mock trial awards",
+      "basis": "October 2026 résumé; two Best Advocate and one Best Closing Statement awards, April 2025.",
+      "reference": "experience.html#year-2025"
+    },
+    {
+      "claim": "Community involvement and SHSM",
+      "basis": "October 2026 résumé; school record not publicly reproduced.",
+      "reference": "experience.html#manufacturing"
+    },
+    {
+      "claim": "Workshop design",
+      "basis": "October 2026 lesson plan and handout; delivery not established.",
+      "reference": "experience.html#leadership-workshop"
+    },
+    {
+      "claim": "Funding media coverage",
+      "basis": "Independent press link, not proof of sole causation.",
+      "reference": "https://vocm.com/2026/11/24/317652/"
+    },
+    {
+      "claim": "Rowing results",
+      "basis": "Published competition record.",
+      "reference": "https://rccdn.cachefly.net/results/10134_216c448c-b94e-45cb-b720-9f36e2c6f6d0.pdf"
+    },
+    {
+      "claim": "Museum event photographs",
+      "basis": "Event photographs supplied through an Instagram link; date confirmed by site owner.",
+      "reference": "https://www.instagram.com/p/DQr_voOE0Wn/"
+    },
+    {
+      "claim": "Petition",
+      "basis": "Original public campaign petition; creator attribution supplied by site owner.",
+      "reference": "https://www.change.org/p/improve-sa-reporting-procedures-in-canadian-cadet-programs"
+    },
+    {
+      "claim": "Artwork and photographs",
+      "basis": "Publication provenance; rights are not independently verified.",
+      "reference": "assets/image-provenance.json"
+    }
+  ]
+}
