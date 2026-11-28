@@ -1,0 +1,88 @@
+name: Website health and performance
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 14 * * 1'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify live deployment and sitemap
+        run: |
+          mkdir -p reports
+          python3 - <<'PY'
+          import urllib.request, xml.etree.ElementTree as ET, json, re, pathlib
+          base = 'https://dultenrichard.github.io/dultenrichard/'
+          ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          report = []
+          def fetch(url):
+              req = urllib.request.Request(url, headers={'User-Agent': 'PortfolioSiteHealth/1.0'})
+              with urllib.request.urlopen(req, timeout=30) as res:
+                  return res.status, res.read().decode('utf-8', 'replace')
+          try:
+              _, xml = fetch(base+'sitemap.xml')
+              urls = [x.text for x in ET.fromstring(xml).findall('s:url/s:loc', ns)]
+          except Exception as e:
+              urls = []
+              report.append({'error': str(e)})
+          expected = [base]+[base+x+'.html' for x in ('2019','2021','2023','2024','2025','2026','press')]
+          for url in expected:
+              try:
+                  status, html = fetch(url)
+                  canonical = re.search(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"', html)
+                  report.append({'url':url,'http':status,'in_sitemap':url in urls,'canonical_matches':bool(canonical and canonical.group(1)==url),'has_h1':bool(re.search(r'<h1\b',html)),'new_homepage':('assets/headshot.webp' in html) if url==base else None})
+              except Exception as e:
+                  report.append({'url':url,'error':str(e)})
+          pathlib.Path('reports/deployment.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps(report,indent=2))
+          PY
+      - name: Lighthouse mobile and desktop
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: |
+          for page in home press archive; do
+            case "$page" in
+              home) url=https://dultenrichard.github.io/dultenrichard/ ;;
+              press) url=https://dultenrichard.github.io/dultenrichard/press.html ;;
+              archive) url=https://dultenrichard.github.io/dultenrichard/2026.html ;;
+            esac
+            for device in mobile desktop; do
+              extra=()
+              if [ "$device" = desktop ]; then extra+=(--preset=desktop); fi
+              npx --yes lighthouse@12 "$url" "${extra[@]}" --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path="reports/$page-$device.json" --quiet || echo "$page/$device failed"
+            done
+          done
+      - name: Publish audit summary
+        if: always()
+        run: |
+          node --input-type=module <<'JS' >> "$GITHUB_STEP_SUMMARY"
+          import fs from 'node:fs';
+          console.log('## Website health (lab data, not field Core Web Vitals)');
+          console.log('| Page/device | Performance | Accessibility | Best practices | SEO | LCP (ms) | CLS | TBT (ms) |');
+          console.log('|---|---:|---:|---:|---:|---:|---:|---:|');
+          for (const file of fs.readdirSync('reports').filter(x=>x.endsWith('.json')&&x!=='deployment.json')) {
+            try {
+              const r=JSON.parse(fs.readFileSync('reports/'+file,'utf8'));
+              if (!r.categories) continue;
+              const score=k=>Math.round(r.categories[k].score*100);
+              const n=k=>r.audits[k]?.numericValue;
+              console.log('| '+[file,score('performance'),score('accessibility'),score('best-practices'),score('seo'),Math.round(n('largest-contentful-paint')),Number(n('cumulative-layout-shift')).toFixed(3),Math.round(n('total-blocking-time'))].join(' | ')+' |');
+            } catch {}
+          }
+          JS
+      - name: Save reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-health-reports
+          path: reports/
+          retention-days: 30
